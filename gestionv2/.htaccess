@@ -1,0 +1,12 @@
+RewriteEngine on
+
+# Block access to specific directories
+RewriteRule ^(.git/|controller/|views/) - [F,L,NC]
+
+# Block access to specific files
+RewriteRule ^(\\.gitignore|package\\.json|package-lock\\.json|README\\.md|variables\\.php)$ - [F,L,NC]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,l]

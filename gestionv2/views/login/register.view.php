@@ -21,7 +21,7 @@
         </div>
         <?php endif; ?>
 
-        <form class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <form class="form" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">
             <p class="form-title">Regístrate</p>
             <div class="input-container">
                 <input type="text" placeholder="Ingresa tu Nombre" require autocomplete="off" pattern="[A-Za-zÀ-ÿ\s]+"
@@ -47,7 +47,7 @@
 
             <p class="signup-link">
                 ¿Ya posees Cuenta?
-                <a href="login.php">Inicia Sesion</a>
+                <a href="login">Inicia Sesion</a>
             </p>
         </form>
     </div>
