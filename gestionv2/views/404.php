@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <link rel="stylesheet" href="src/css/error.css">
+  <title>Error 404 - Página no encontrada</title>
 </head>
 <body>
-  <h1>404</h1>
+
+<div class="container">
+    <div class="header">
+        <h1>Error 404</h1>
+    </div>
+    <img src="src/assets/404.png" alt="Error 404" />
+    <div class="footer">
+        <p>
+            Lo sentimos, la pagina que buscas no se ha encontrado
+        </p>
+        <a>Volver al inicio</a>
+    </div>
+</div>
+
 </body>
 </html>
