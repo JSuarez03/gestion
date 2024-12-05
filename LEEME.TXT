@@ -1,0 +1,5 @@
+# La conexion se Cambio de POSGRESQL A MYSQL
+# Se agregaron las vistas principales del Programa, pensaba instalar el paquete de TailwindCSS, pero por los momentos se esta usando como un CDN, al igual que Sweetalert2
+# No se ha agregado funcionalidad extra o validacion, solo puras vistas
+# No use la rama anterior porque me ha causado problemas en gestionar de una pagina a otra, no entendi como hacerlo, sorry xD
+# Cualquier duda estamos en Contacto Simon
