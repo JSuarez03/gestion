@@ -1,6 +1,6 @@
 <?php
   
-require_once('./controller/database.php');
+require_once('./controller/Database.php');
 
 class Usuario{
   private $conexion;

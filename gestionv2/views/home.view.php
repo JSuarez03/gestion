@@ -57,7 +57,7 @@ if(!isset($_SESSION['usuario'])){
                         <i class="fas fa-question-circle"></i>
                         <span class="nav-item">Ayuda</span>
                     </a></li>
-                <li><a href="../config/cerrar.php" class="logout">
+                <li><a href="logout" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-item">Cerrar Sesion</span>
                     </a></li>

@@ -3,7 +3,7 @@
 if(isset($_SESSION['usuario'])){
   header('Location: index');
 }
-require_once('controller/usuarios.php');
+require_once('controller/Usuario.php');
 /**
 * ! AQUÍ SE PREPARAN Y SANITIZAN LAS VARIABLES, YA LOS DATOS LOS RECIBEN EN TEXTO CON HTMLSPECIALCHARS
 */

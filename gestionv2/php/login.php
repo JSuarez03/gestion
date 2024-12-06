@@ -2,10 +2,10 @@
 session_start();
 
 if(isset($_SESSION['usuario'])){
-    header('Location: index');
+    header('Location: home');
 }
 
-require_once('controller/usuarios.php');
+require_once('controller/Usuario.php');
 $error = '';
 
 /**
