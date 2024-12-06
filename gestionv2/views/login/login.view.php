@@ -24,8 +24,7 @@
         <form class="form" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">
             <p class="form-title">Inicia sesión en tu cuenta</p>
             <div class="input-container">
-                <input type="text" placeholder="Ingresa tu Nombre" require autocomplete="off" pattern="[A-Za-zÀ-ÿ\s]+"
-                    title="Solo se permiten letras y acentos" name="nombre" />
+                <input type="text" placeholder="Ingresa tu Nombre" require autocomplete="off"  name="nombre" />
             </div>
             <div class="input-container">
                 <input type="email" name="correo" placeholder="Ingresa tu Correo" required autocomplete="off" />
