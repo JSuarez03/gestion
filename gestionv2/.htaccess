@@ -7,6 +7,9 @@ RewriteRule ^(.git/|controller/|views/) - [F,L,NC]
 RewriteRule ^(\\.gitignore|package\\.json|package-lock\\.json|README\\.md|variables\\.php)$ - [F,L,NC]
 
 
-RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_URI} !\.(css|js|gif|jpg|png|ico)$ [NC]
+
 RewriteRule ^ index.php [QSA,l]

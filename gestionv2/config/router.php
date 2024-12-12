@@ -11,7 +11,10 @@ $routes = array(
       "/login" => '/login.php',
       "/home" => '/home.php',
       "/logout" => '/cerrar.php',
-      "/Citas" => '/citas.php',
+      "/citas" => '/citas/ver_citas.php',
+      "/citas/create" => '/citas/crear_cita.php',  
       "/index" => '/index.php',
+      "/productos" => '/productos/ver_productos.php',
+      "/productos/register" => '/productos/registrar_productos.php',
     )
 );
