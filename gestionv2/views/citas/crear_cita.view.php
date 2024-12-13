@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <title>Crear Citas</title>
     <?php 
         require_once "./views/templates/head.php";
     ?>

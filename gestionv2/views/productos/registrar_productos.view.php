@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <title>Crear Producto</title>
     <?php 
-        $title = "Crear Producto";
         require_once "./views/templates/head.php";
     ?>
 </head>

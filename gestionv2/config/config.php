@@ -3,4 +3,5 @@
   $urlPath = $_SERVER['REQUEST_URI'];
   $url = substr($urlPath,strlen($folderPath));
 
+  
   define('URL', $url);

@@ -8,7 +8,7 @@ class Database {
 
   // * Se crea la clase __construct() de forma privada para evitar crear mas de una instancia de esta clase
   private function __construct() { 
-    $this->Dbpdo = new PDO("pgsql:dbname=8vo;host=localhost","root","1");
+    $this->Dbpdo = new PDO("pgsql:dbname=8vo;host=localhost",'root','1');
   }
 
   // * para poder obtener la instacia de esta clase se utiliza el metodo getInstance para retornar la instancia unica o crearla

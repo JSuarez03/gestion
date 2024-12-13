@@ -23,7 +23,7 @@
                         <a href="citas/create" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-sky-600">Crear Cita</a>
                     </li>
                     <li>
-                        <a href="citas/" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-sky-600">Ver Citas</a>
+                        <a href="citas" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-sky-600">Ver Citas</a>
                     </li>
                 </ul>
             </li>

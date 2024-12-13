@@ -1,14 +1,7 @@
 <?php
-$servername = "my-database";
+
+$servername = "pgsql:dbname=8vo;host=localhost";
 $username = "root";
-$password = "";
+$password = "1";
 
-try {
-  $conexion = new PDO("mysql:=$servername;dbname=gestionv2", $username, $password);
-  $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo 'Conexion exitosa';
-
-} catch(PDOException $e) {
-  echo "Conexion Fallida: " . $e->getMessage();
-}
 ?>
