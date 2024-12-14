@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <title>Citas Registradas</title>
     <?php 
         require_once "./views/templates/head.php";
     ?>
