@@ -1,22 +1,10 @@
-<?php
-
-/* session_start();
-
-if(!isset($_SESSION['usuario'])){
-    header('Location: ../index.php');
-    session_destroy();
-    die();
-} */
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/css/style.css">
     <title>Inicio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../src/js/menu.js"></script>
+<?php
+    require_once "./views/templates/head.php";
+?>
 </head>
 <body class="font-poppins">
 
