@@ -1,6 +1,7 @@
 <?php
-require 'home.view.php';
+
 session_start();
+require 'home.view.php';
 
 if(!isset($_SESSION['usuario'])){
     header('Location: ../index.php');
