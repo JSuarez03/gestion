@@ -2,10 +2,11 @@
 session_start();
 
 if(isset($_SESSION['usuario'])){
-    header('Location: home');
+    header('Location: /gestion/gestionv2/home');
 }
 
-require_once('controller/Usuario.php');
+use Controller\Usuario;
+
 $error = '';
 
 /**

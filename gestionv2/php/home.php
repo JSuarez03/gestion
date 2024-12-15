@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['usuario'])){
-  header('Location: register');
+  header('Location: /gestion/gestionv2/login');
   die();
 }
 

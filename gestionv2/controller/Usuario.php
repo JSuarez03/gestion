@@ -1,6 +1,8 @@
 <?php
   
-require_once('./controller/Database.php');
+namespace Controller;
+
+use Controller\Database;
 
 class Usuario{
   private $conexion;

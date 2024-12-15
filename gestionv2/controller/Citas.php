@@ -1,6 +1,8 @@
 <?php
 
-require_once('./controller/Database.php');
+namespace Controller;
+
+use Controller\Database;
 
 /**
  * Description of Citas
@@ -8,25 +10,35 @@ require_once('./controller/Database.php');
  * @author Usuario
  */
 class Citas {
-        private $conexion;
+    private $conexion;
     public function __construct() {
-        $this->conexion = new Database;
+        $this->conexion = Database::getInstance();
     }
-    public function agregar($datos) {
+    public function agregar(array $datos) {
         try{
-            $this->conexion->insert('citas', $datos);
-            return true;
+            $res = $this->conexion->insert('citas', $datos);
+            return $res;
         }
         catch (PDOException $err){
-            return $err;
+            return $err->getMessage();
         }
     }
-    public function lista(array $cliente): array{
+    
+    public function listaTotal(): array{
         try{
-            $res = $this->conexion->readOnly('clientes',array('correo'=>$cliente));
+            $res = $this->conexion->readMany('citas');
             return $res;
         } catch (Exception $err) {
-            return $err;
+            return "error:" . $err->getMessage();
+        }
+    }
+      
+    public function listaUnica(array $cliente): array{
+        try{
+            $res = $this->conexion->readOnly('citas',array('nombre'=>$cliente));
+            return $res;
+        } catch (Exception $err) {
+            return "error:" . $err->getMessage();
         }
         
     }    

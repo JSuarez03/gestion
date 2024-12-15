@@ -47,7 +47,7 @@
 
             <p class="signup-link">
                 ¿Ya posees Cuenta?
-                <a href="login">Inicia Sesion</a>
+                <a href="/gestion/gestionv2/login">Inicia Sesion</a>
             </p>
         </form>
     </div>

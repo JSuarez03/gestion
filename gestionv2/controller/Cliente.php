@@ -1,6 +1,8 @@
 <?php
 
-require_once('./controller/Database.php');
+namespace Controller;
+
+use Controller\Database;
 
 /**
  * Clase utiliazada para menejar las operaciones relacionadas con los Clientes

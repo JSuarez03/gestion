@@ -37,7 +37,7 @@
 
             <p class="signup-link">
                 ¿Aún no posees Cuenta?
-                <a href="register">Regístrate</a>
+                <a href="/gestion/gestionv2/register">Regístrate</a>
             </p>
 
         </form>
