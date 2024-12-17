@@ -1,81 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <title>Crear Citas</title>
-    <?php 
-        require_once "./views/templates/head.php";
-    ?>
+  <meta charset="utf-8">
+  <title>Crear Cita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
+  <meta content="coderthemes" name="author">
+  <?php require './views/templates/scripts.php' ?>
 </head>
+
 <body class="font-poppins">
 
-    
-<button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-sky-600 dark:focus:ring-gray-600">
-    <span class="sr-only">Open sidebar</span>
-    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-    </svg>
- </button>
- 
-<?php 
-    require_once "./views/templates/menu.php";
-?>
+  <!-- Begin page -->
+  <div class="flex wrapper">
+    <?php require_once './views/templates/menu.php'; ?>
 
-<!--
-/**
-* ? Aqui ya empieza el relleno fuera del menu    m-12 space-y-6
-*/
---> 
+      <div class="page-content">
+        <?php require_once './views/templates/header.php'; ?>
 
- <div class="p-4 sm:ml-64">
-    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <div class=" border-solid border-2 border-black rounded-lg bg-blue-950 p-6 space-y-4">
-            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Registre una Nueva Cita</h1>
-            <form method="post" class="border-gray-600" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]);?>">
-                <div class="grid gap-6 mb-6 md:grid-cols-2">
-                    <div>
-                        <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre:</label>
-                        <input type="text" name="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido</label>
-                        <input type="text" name="apellido" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                    </div>
-                    <div>
-                        <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion</label>
-                        <input type="text" name="direccion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                    </div>
-                    <div>
-                      <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero de Telefono</label>
-                      <input type="text" name="telefono" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0424-845-4571" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" />
-                    </div>
-
-                    <div>
-                        <label for="visitors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Dia de Atencion</label>
-                        <input type="date" name="dia" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                    </div>
-                    <div>
-                        <label for="visitors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hora de Atencion</label>
-                        <input type="time" name="hora" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                    </div>
-
-                    <div>
-                        <label for="razon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Razon de la Cita</label>
-                        <select name="razon" id='razon' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Seleccione una Opcion</option>
-                            <option value="US">Miopia</option>
-                            <option value="CA">Hipermetropia</option>
-                            <option value="FR">Astigmatismo</option>
-                            <option value="DE">Presbicia</option>
-                        </select>
-                    </div>
-                </div>
-            
-            <button type="submit" id="successButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrar</button>
-            </form> 
-            </div> 
-        </div>
+<main class="flex-grow p-6">
+    <div class="flex justify-between items-center mb-6">
+        <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
+            Crear Cita
+        </p>
     </div>
 
 
+<!-- Page Title End -->
+    <div class="flex flex-col gap-6">
+        <div class="card">
+            <div class="p-6">
+                <form class="grid lg:grid-cols-3 gap-6">
+                
+                <div>
+                    <label for="example-select" class="text-gray-800 text-sm font-medium inline-block mb-2">Cliente</label>
+                    <select class="form-select" id="example-select">
+                        <option>Seleccione un Cliente</option>
+                        <option>Cliente 1</option>
+                        <option>Cliente 2</option>
+                        <option>Cliente 3</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="example-date" class="text-gray-800 text-sm font-medium inline-block mb-2">Fecha</label>
+                    <input class="form-input" id="example-date" type="date" name="date">
+                </div>
+
+                <div>
+                    <label for="example-time" class="text-gray-800 text-sm font-medium inline-block mb-2">Hora de Atencion:</label>
+                    <input class="form-input" id="example-time" type="time" name="time">
+                </div>
+
+                <div>
+                    <label for="simpleinput" class="text-gray-800 text-sm font-medium inline-block mb-2">Servicio:</label>
+                    <input type="text" id="simpleinput" class="form-input">
+                </div>
+
+                <div>
+                    <label for="example-select" class="text-gray-800 text-sm font-medium inline-block mb-2">Estado</label>
+                    <select class="form-select" id="example-select">
+                        <option>Seleccione una Estado de la Cita</option>
+                        <option>Confirmada</option>
+                        <option>Pendiente</option>
+                        <option>Cancelada</option>
+                    </select>
+                </div>
+                
+                <div class="col-span-3 text-center">
+                    <button type="button" class="btn bg-primary text-white hover:bg-blue-700" id="sweetalert-success">Registrar Cita</button>
+                </div>
+            </form>
+        </div> 
+    </main>
+
+
+
+        <!-- Footer Start -->
+        <footer class="footer h-16 flex items-center px-6 bg-white shadow dark:bg-gray-800">
+    <div class="flex md:justify-between justify-center w-full gap-4">
+        <div>
+            <script>document.write(new Date().getFullYear())</script> © Konrix - <a href="https://coderthemes.com/" target="_blank">Coderthemes</a>
+        </div>
+        <div class="md:flex hidden gap-4 item-center md:justify-end">
+            <a href="javascript: void(0);" class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">About</a>
+            <span class="border-e border-gray-300 dark:border-gray-700"></span>
+            <a href="javascript: void(0);" class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">Support</a>
+            <span class="border-e border-gray-300 dark:border-gray-700"></span>
+            <a href="javascript: void(0);" class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white">Contact Us</a>
+        </div>
+    </div>
+</footer>
+        <!-- Footer End -->
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- End Page content -->
+      <!-- ============================================================== -->
+
+    </div>
+
+    <!-- Back to Top Button -->
+    <button data-toggle="back-to-top" class="fixed hidden h-10 w-10 items-center justify-center rounded-full z-10 bottom-20 end-14 p-2.5 bg-primary cursor-pointer shadow-lg text-white">
+      <i class="mgc_arrow_up_line text-lg"></i>
+    </button>
+
+<!-- Theme Settings -->
+<?php require_once './views/templates/themeSettings.php';?>
+    </div>
 </body>
+
 </html>

@@ -1,135 +1,225 @@
-<?php
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php require "./views/templates/scripts.php";?>
+        <title>Inicio</title>
+    </head>
+    <body>
 
-/* session_start();
-
-if(!isset($_SESSION['usuario'])){
-    header('Location: ../index.php');
-    session_destroy();
-    die();
-} */
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title>Inicio</title>
-    <?php 
-    require_once './views/templates/head.php';
-    ?>
+        <div class="flex wrapper">
+            <!--
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        -->
+            <?php require_once "./views/templates/menu.php";?>
+    <!--
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        TODO: BARRA DE NAVEGACION
+        -->
     
-</head>
-<body class="font-poppins">
 
-<button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-sky-600 dark:focus:ring-gray-600">
-    <span class="sr-only">Open sidebar</span>
-    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-    </svg>
-</button>
+    
+    
+    <div class="page-content">
+        <!--
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        -->
+        <?php require_once './views/templates/header.php';?>
+    <!--
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        ? ESTA PARTE DE AQUI PARA ABAJO ES EL HEADER
+        -->
 
-<?php 
-    require_once "./views/templates/menu.php";
-?>
 
-<div class="p-4 sm:ml-64">
-    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Tablero</h1>
+    
+    <main class="flex-grow p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
+                Tablero
+            </p>
+        </div>
 
-        <div class="grid grid-cols-4 gap-4 mb-4">
-            <div class=" items-center justify-between p-4 h-24 rounded bg-red-800">
-                <span class="text-3xl font-bold text-white">12</span>
-                <p class="text-xl text-white">
-                    Citas Registradas
-                </p>
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">  
+            <div class="card">
+                <div class="p-5 bg-blue-700 rounded">
+                    <div class="flex justify-between">
+                        <div class="w-20 h-20 rounded-full inline-flex items-center justify-center text-sky-500 bg-sky-500/25">
+                            <i class="mgc_tag_line text-4xl text-primary"></i>
+                        </div>
+                        <div class="text-right ">
+                            <h3 class="text-gray-700 mt-1 text-2xl font-bold mb-5 dark:text-white">3947</h3>
+                            <p class="text-gray-500 mb-1 truncate dark:text-white">Total Tickets</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid items-center justify-between p-4 h-24 rounded bg-yellow-400">
-                <span class="text-3xl font-bold text-black">12</span>
-                <p class="text-xl text-black">
-                    Productos Registrados
-                </p>
+        
+            <div class="card">
+                <div class="p-5 bg-yellow-400 rounded">
+                    <div class="flex justify-between">
+                        <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-yellow-100">
+                            <i class="mgc_alarm_2_line text-4xl text-yellow-500"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="text-gray-700 mt-1 text-2xl font-bold mb-5 dark:text-black">624</h3>
+                            <p class="text-gray-500 mb-1 truncate dark:text-black">Pending Tickets</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid items-center justify-between p-4 h-24 rounded bg-green-600">
-                <span class="text-3xl font-bold text-white">73%</span>
-                <p class="text-xl text-white">
-                    Estadistica de Ventas
-                </p>
+        
+            <div class="card">
+                <div class="p-5 bg-green-700 rounded">
+                    <div class="flex justify-between">
+                        <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-green-100">
+                            <i class="mgc_check_line text-4xl text-green-500"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="text-gray-700 mt-1 text-2xl font-bold mb-5 dark:text-white">3195</h3>
+                            <p class="text-gray-500 mb-1 truncate dark:text-white">Closed Tickets</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid items-center justify-between p-4 h-24 rounded bg-blue-700">
-                <span class="text-3xl font-bold text-white">27%</span>
-                <p class="text-xl text-white">
-                    Estado de Inventario
-                </p>
+        
+            <div class="card">
+                <div class="p-5 bg-red-700 rounded">
+                    <div class="flex justify-between">
+                        <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-red-100">
+                            <i class="mgc_delete_line text-4xl text-red-500"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="text-gray-700 mt-1 text-2xl font-bold mb-5 dark:text-white">128</h3>
+                            <p class="text-gray-500 mb-1 truncate dark:text-white">Deleted Tickets</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Line with Data Labels</h4>
+                </div>
+                <div class="p-6">
+
+                    <div id="line_chart_datalabel" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Dashed Line</h4>
+                </div>
+                <div class="p-6">
+                    <div id="line_chart_dashed" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Spline Area</h4>
+                </div>
+                <div class="p-6">
+
+                    <div id="spline_area" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Column Chart</h4>
+                </div>
+                <div class="p-6">
+                    <div id="column_chart" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Column with Data Labels</h4>
+                </div>
+                <div class="p-6">
+                    <div id="column_chart_datalabel" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Bar Chart</h4>
+                </div>
+                <div class="p-6">
+                    <div id="bar_chart" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Line, Column & Area Chart</h4>
+                </div>
+                <div class="p-6">
+                    <div id="mixed_chart" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Radial Chart</h4>
+                </div>
+                <div class="p-6">
+                    <div id="radial_chart" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div><!--end card-->
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Pie Chart</h4>
+                </div>
+                <div class="p-6">
+                    <div id="pie_chart" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title   ">Donut Chart</h4>
+                </div>
+                <div class="p-6">
+                    <div id="donut_chart" class="apex-charts" dir="ltr"></div>
+                </div>
             </div>
         </div>
 
-        <!--   <div class="grid grid-cols-2 gap-4 mb-4">
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-           </div>
-           <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-              <p class="text-2xl text-gray-400 dark:text-gray-500">
-                 <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                 </svg>
-              </p>
-           </div>
-           <div class="grid grid-cols-2 gap-4">
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-              <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                 <p class="text-2xl text-gray-400 dark:text-gray-500">
-                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                 </p>
-              </div>
-           </div>-->
-    </div>
+        
+    </main>
 </div>
+</div>
+
+<button data-toggle="back-to-top" class="fixed hidden h-10 w-10 items-center justify-center rounded-full z-10 bottom-20 end-14 p-2.5 bg-primary cursor-pointer shadow-lg text-white">
+    <i class="mgc_arrow_up_line text-lg"></i>
+</button>
 
 </body>
 </html>

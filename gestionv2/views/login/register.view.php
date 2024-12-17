@@ -1,59 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/login.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="shortcut icon" href="src/assets/bacterias.ico" type="image/x-icon">
-    <title>Registrarse</title>
+    <link rel="stylesheet" href="src/css/estilos.css">
+    <link rel="stylesheet" href="src/css/app.min.css">
+    <title>Registrate</title>
 </head>
+<body class=" font-poppins">
+    
+    <div class=" bg-fondo">
+        <div class="h-screen w-screen flex justify-center items-center">
+            <div class="2xl:w-1/4 lg:w-1/3 md:w-1/2 w-full">
+                <div class="card overflow-hidden sm:rounded-md rounded-none">
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
+                                Registrate
+                            </p>
 
-<body>
+                        </div>
+                        <form action="">
+                        <div class="mb-4">
+                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Nombre" >
+                        </div>
 
-    <div class="container">
-        <?php if(!empty($error)): ?>
-        <div class="error">
-            <h3>
-                <?php echo $error; ?>
-            </h3>
+                        <div class="mb-4">
+                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Apellido" >
+                        </div>
+
+                        <div class="mb-4">
+                            <input id="LoggingEmailAddress" class="form-input" type="email" placeholder="Ingresa tu Correo" >
+                        </div>
+
+                        <div class="mb-4">
+                            <input id="loggingPassword" class="form-input" type="password" placeholder="Ingresa tu Contrasena" >
+                        </div>
+
+                        <div class="mb-4">
+                            <input id="loggingPassword" class="form-input" type="password" placeholder="Repite tu Contrasena" >
+                        </div>
+
+
+                        <div class="flex justify-center mb-6">
+                            <a href="#" class="btn w-full text-white bg-primary hover:bg-blue-900">Registrate</a>
+                        </div>
+                    </form>
+                        <p class="text-gray-500 dark:text-gray-400 text-center">Ya posees una Cuenta?<a href="index.html" class="text-primary ms-1"><b>Inicia Sesion</b></a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <?php endif; ?>
-
-        <form class="form" action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="POST">
-            <p class="form-title">Regístrate</p>
-            <div class="input-container">
-                <input type="text" placeholder="Ingresa tu Nombre" require autocomplete="off" pattern="[A-Za-zÀ-ÿ\s]+"
-                    title="Solo se permiten letras y acentos" name="nombre" />
-            </div>
-            <div class="input-container">
-                <input type="text" placeholder="Ingresa tu Apellido" require autocomplete="off" pattern="[A-Za-zÀ-ÿ\s]+"
-                    title="Solo se permiten letras y acentos" name="apellido" />
-            </div>
-            <div class="input-container">
-                <input type="email" name="correo" placeholder="Ingresa tu Correo" require autocomplete="off" />
-            </div>
-            <div class="input-container">
-                <input type="password" name="contrasena" placeholder="Ingresa tu Contraseña" require
-                    autocomplete="off" />
-            </div>
-            <div class="input-container">
-                <input type="password" name="contrasena2" placeholder="Repite tu Contraseña" require
-                    autocomplete="off" />
-            </div>
-
-            <button class="submit" type="submit">Iniciar Sesión</button>
-
-            <p class="signup-link">
-                ¿Ya posees Cuenta?
-                <a href="/gestion/gestionv2/login">Inicia Sesion</a>
-            </p>
-        </form>
     </div>
-
-
-
+    
 </body>
-
 </html>
