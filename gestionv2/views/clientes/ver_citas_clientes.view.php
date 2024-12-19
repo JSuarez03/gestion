@@ -67,6 +67,7 @@
 
 <!-- Theme Settings -->
 <?php require_once './views/templates/themeSettings.php';?>
+<script src="./src/js/tableInfo.js"></script>
 </body>
 
 </html>

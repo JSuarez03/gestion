@@ -1,41 +1,39 @@
-<?php session_start();
-
+<?php 
+session_start();
 if(isset($_SESSION['usuario'])){
-  header('Location: index');
+  header('Location: login');
 }
-require_once('controller/Usuario.php');
+require_once 'php/evaluar.php';
+use Controller\Usuario;
+
 /**
-* ! AQUÍ SE PREPARAN Y SANITIZAN LAS VARIABLES, YA LOS DATOS LOS RECIBEN EN TEXTO CON HTMLSPECIALCHARS
-*/
+ * ! AQUÍ SE PREPARAN Y SANITIZAN LAS VARIABLES, YA LOS DATOS LOS RECIBEN EN TEXTO CON HTMLSPECIALCHARS, y VERIFICA QUE TODOS LOS CAMPOS ESTEN LLENOS
+ */
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $nombre = filter_var(strip_tags($_POST['nombre']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $apellido = filter_var(strip_tags($_POST['apellido']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $correo = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
-    $contrasena = $_POST['contrasena'];
+  $error = '';
+  try{
+    $datos['nombre'] = sanear($_POST['nombre']);
+    $datos['apellido'] = sanear($_POST['apellido']);
+    $datos['email'] = sanearMail($datos['email'] );
+    $datos['contrasena'] = $_POST['contrasena'];
     $contrasena2 = $_POST['contrasena2'];
+  }
+  catch (Exception $e) {
+    $e = $e->getMessage();
+    $error .= "<script>Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: '$e',
+    });
+    </script>";
+  }
 
-    $error = '';
-
-/**
-* ! VERIFICA QUE TODOS LOS CAMPOS ESTEN LLENOS,
-*/
-    if (empty($nombre) or empty($apellido) or empty($correo) or empty($contrasena) or empty($contrasena2)){
-      $error .= '<script>Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "Para registrarse es necesario llenar todos los campos",
-      });
-      </script>';
-    }else {
-        try {
-            $conexion = new Usuario();
-        }catch (Exception $e) {
-            echo "Error: " . $e->getMessage();
-        } 
 /**
 * ! VERIFICA QUE EL CORREO NO SE REPITA
 */
-    $resultado = $conexion->comprobar(array('correo'=>"'".$correo."'"));
+  $conexion = new Usuario;
+    $resultado = $conexion->comprobar(array('email'=>"'".$datos['email']."'"));
     if ($resultado != false){
             $error .= '<script>Swal.fire({
                 icon: "error",
@@ -49,33 +47,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 * ! HASHEAMOS LA CONTRASEÑA, AQUÍ SE PUEDE MEJORAR XD
 * TODO: esto tambien se va a colocar en la clase usuario
 */
-    $contrasena = hash('sha512', $contrasena);
+    $datos['contrasena'] = hash('sha512', $datos['contrasena']);
     $contrasena2 = hash('sha512', $contrasena2);
 
 /**
 * ! COMPROBAMOS QUE LAS CONTRASEÑAS SEAN IGUALES
 * TODO: esto ira junto a la comprobacion
 */
-        if ($contrasena !== $contrasena2) {
+        if ($datos['contrasena'] !== $contrasena2) {
             $error = '<script>Swal.fire({
                 icon: "error",
                 title: "Error",
                 text: "Las Contraseñas no Coinciden",
               });
             </script>'; }
-    }
+    
     
 /**
 * ! INSERTAMOS EL USUARIO EN LA BASE DE DATOS
 */
     if ($error == ''){
-      $statement = array(
+/*       $statement = array(
         'nombre' => "'".$nombre."'", 
         'apellido' => "'".$apellido."'", 
-        'correo' => "'".$correo."'", 
+        'email' => "'".$correo."'", 
         'contrasena' => "'".$contrasena."'",
-      );
-      $result = $conexion->registro($statement);
+      ); */
+      $result = $conexion->registro($datos);
       if($result !== true){
         echo $result;
         die();

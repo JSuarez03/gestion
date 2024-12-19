@@ -12,18 +12,18 @@ use Controller\Database;
 class Cliente {
     private $conexion;
     public function __construct() {
-        $this->conexion = new Database;
+        $this->conexion = Database::getInstance();
     }
-    public function agregar($datos) {
+    public function agregar($datos): true|\PDOException {
         try{
             $this->conexion->insert('clientes', $datos);
             return true;
         }
-        catch (PDOException $err){
+        catch (\PDOException $err){
             return $err;
         }
     }
-    public function lista($cliente = false) {
+    public function lista($cliente = false): array|false|\Exception {
         try{
             if($cliente !== false){
                 $res = $this->conexion->readOnly('clientes',array('correo'=>$cliente));
@@ -31,7 +31,7 @@ class Cliente {
                 $res = $this->conexion->readMany('clientes');
             }
             return $res;
-        } catch (Exception $err) {
+        } catch (\Exception $err) {
             return $err;
         }
         
@@ -40,7 +40,7 @@ class Cliente {
         try{
             $res = $this->conexion->readOnly('history',array('correo'=>$cliente));
             return $res;
-        } catch (Exception $err) {
+        } catch (\Exception $err) {
             return $err;
         }
         

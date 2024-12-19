@@ -65,21 +65,6 @@
                                         <option>Cancelada</option>
                                     </select>
                                 </div>
-                
-                                <div>
-                                    <label for="simpleinput" class="text-gray-800 text-sm font-medium inline-block mb-2">Apellido:</label>
-                                    <input type="text" id="simpleinput" class="form-input">
-                                </div>
-                
-                                <div>
-                                    <label for="simpleinput" class="text-gray-800 text-sm font-medium inline-block mb-2">Numero de Telefono:</label>
-                                    <input type="tel" id="simpleinput" class="form-input">
-                                </div>
-                
-                                <div>
-                                    <label for="simpleinput" class="text-gray-800 text-sm font-medium inline-block mb-2">Direccion:</label>
-                                    <input type="text" id="simpleinput" class="form-input">
-                                </div>
                                 
                                 <div class="col-span-3 text-center">
                                     <button type="button" class="btn bg-primary text-white hover:bg-blue-700" id="sweetalert-success">Actualizar Registro</button>

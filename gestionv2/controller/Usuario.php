@@ -12,7 +12,7 @@ class Usuario{
     $this->conexion = Database::getInstance();
   }
 
-  public function comprobar($datos){
+  public function comprobar($datos): array|false{
     $resultado = $this->conexion->readOnly('usuarios',$datos);
     return $resultado;
   }
@@ -21,7 +21,7 @@ class Usuario{
     try{
       $resultado = $this->conexion->insert('usuarios',$datos);
       return true;
-    }catch(PDOException $err){
+    }catch(\PDOException $err){
       return $err;
     }
     ;

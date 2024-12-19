@@ -10,7 +10,7 @@ class Database {
 
   // * Se crea la clase __construct() de forma privada para evitar crear mas de una instancia de esta clase
   private function __construct() { 
-    $this->Dbpdo = new \PDO("pgsql:dbname=8vo;host=localhost",'root','1');
+    $this->Dbpdo = new \PDO("pgsql:dbname=Gestionv2;host=localhost",'root','1');
   }
 
   // * para poder obtener la instacia de esta clase se utiliza el metodo getInstance para retornar la instancia unica o crearla
@@ -40,25 +40,25 @@ class Database {
       $statement->execute();
       $res = $statement->fetchAll();
       return $res;
-    } catch (PDOException $th) {
-      throw new Exception($th->getMessage());
+    } catch (\PDOException $th) {
+      throw new \Exception($th->getMessage());
     }
   }  
   
-  public function readOnly($table,$datos){
+  public function readOnly($table,$datos): array|false{
     $keys = array_keys($datos);
     $value = array_values($datos);
     $compare = $this->parametros($datos, "AND");
     try {
       $statement = $this->Dbpdo->prepare("Select * from $table where $compare");
       for($i = 0;$i < count($datos);$i++){
-           $statement->bindParam($keys[$i], $value[$i]);
+          $statement->bindParam($keys[$i], $value[$i]);
       }
       $statement->execute();
-      $res = $statement->fetchAll();
+      $res = $statement->fetch();
       return $res;
-    } catch (PDOException $th) {
-      throw new Exception($th->getMessage());
+    } catch (\PDOException $th) {
+      throw new \Exception($th->getMessage());
     }
   }
   
@@ -70,13 +70,13 @@ class Database {
         "insert into $table (".implode(",",$keys).") values(:".implode(",:",$keys).")"
     );
       for($i = 0;$i < count($datos);$i++){
-           $statement->bindParam($keys[$i], $values[$i]);
+          $statement->bindParam($keys[$i], $values[$i]);
       }
       $statement->execute();
       $res = $statement->fetch();
       return $res;
-    } catch (PDOException $th) {
-        throw new Exception($th->getMessage());
+    } catch (\PDOException $th) {
+        throw new \Exception($th->getMessage());
     }
   }
   
@@ -90,14 +90,14 @@ class Database {
         "UPDATE $table set $parametros WHERE ". $whereId."=:".$whereValue
     );
       for($i = 0;$i < count($datos);$i++){
-           $statement->bindParam($value[$i], $value[$i]);
+          $statement->bindParam($value[$i], $value[$i]);
       }
       $statement->bindParam($whereValue, $whereValue);
       $statement->execute();
       $res = $statement->fetch();
       return $res;
-    } catch (PDOException $th) {
-      throw new Exception($th->getMessage());
+    } catch (\PDOException $th) {
+      throw new \Exception($th->getMessage());
     }
   }
     

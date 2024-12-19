@@ -11,45 +11,45 @@
     
     <div class=" bg-fondo">
         <div class="h-screen w-screen flex justify-center items-center">
-            <div class="2xl:w-1/4 lg:w-1/3 md:w-1/2 w-full">
+            <main class="2xl:w-1/4 lg:w-1/3 md:w-1/2 w-full">
                 <div class="card overflow-hidden sm:rounded-md rounded-none">
                     <div class="p-6">
-                        <div class="mb-4">
+                        <h1 class="mb-4">
                             <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
                                 Registrate
                             </p>
 
-                        </div>
-                        <form action="">
+                        </h1>
+                        <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
                         <div class="mb-4">
-                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Nombre" >
-                        </div>
-
-                        <div class="mb-4">
-                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Apellido" >
+                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Nombre" name="nombre">
                         </div>
 
                         <div class="mb-4">
-                            <input id="LoggingEmailAddress" class="form-input" type="email" placeholder="Ingresa tu Correo" >
+                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Apellido" name="apellido">
                         </div>
 
                         <div class="mb-4">
-                            <input id="loggingPassword" class="form-input" type="password" placeholder="Ingresa tu Contrasena" >
+                            <input id="LoggingEmailAddress" class="form-input" type="email" placeholder="Ingresa tu Correo" name="email">
                         </div>
 
                         <div class="mb-4">
-                            <input id="loggingPassword" class="form-input" type="password" placeholder="Repite tu Contrasena" >
+                            <input id="loggingPassword" class="form-input" type="password" placeholder="Ingresa tu Contrasena" name="contrasena">
+                        </div>
+
+                        <div class="mb-4">
+                            <input id="loggingPassword" class="form-input" type="password" placeholder="Repite tu Contrasena" name="contrasena2">
                         </div>
 
 
                         <div class="flex justify-center mb-6">
-                            <a href="#" class="btn w-full text-white bg-primary hover:bg-blue-900">Registrate</a>
+                            <button type="sutmid" class="btn w-full text-white bg-primary hover:bg-blue-900">Registrate</button>
                         </div>
                     </form>
-                        <p class="text-gray-500 dark:text-gray-400 text-center">Ya posees una Cuenta?<a href="index.html" class="text-primary ms-1"><b>Inicia Sesion</b></a></p>
+                        <p class="text-gray-500 dark:text-gray-400 text-center">Ya posees una Cuenta?<a href="<?php echo PATH?>login" class="text-primary ms-1"><b>Inicia Sesion</b></a></p>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     </div>
     

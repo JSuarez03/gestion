@@ -19,7 +19,7 @@ class Citas {
             $res = $this->conexion->insert('citas', $datos);
             return $res;
         }
-        catch (PDOException $err){
+        catch (\PDOException $err){
             return $err->getMessage();
         }
     }
@@ -28,7 +28,7 @@ class Citas {
         try{
             $res = $this->conexion->readMany('citas');
             return $res;
-        } catch (Exception $err) {
+        } catch (\Exception $err) {
             return "error:" . $err->getMessage();
         }
     }
@@ -37,7 +37,7 @@ class Citas {
         try{
             $res = $this->conexion->readOnly('citas',array('nombre'=>$cliente));
             return $res;
-        } catch (Exception $err) {
+        } catch (\Exception $err) {
             return "error:" . $err->getMessage();
         }
         
@@ -46,7 +46,7 @@ class Citas {
         try{
             $res = $this->conexion->readOnly('history',array('correo'=>$cliente));
             return $res;
-        } catch (Exception $err) {
+        } catch (\Exception $err) {
             return $err;
         }
         
@@ -55,7 +55,7 @@ class Citas {
         try{
             $res = $this->conexion->insert('history',$cliente);
             return $res;
-        } catch (Exception $err) { 
+        } catch (\Exception $err) { 
             return $err;
         }
         
