@@ -1,6 +1,5 @@
 <?php
-define('VIEWS_DIR', __DIR__.'/views');
-define('PHP_DIR', __DIR__.'/php');
+
 $routes = array(
     "views" => array(
       "/404" => "/404.php",
@@ -19,7 +18,7 @@ $routes = array(
       "/recuperar" => '/login/recuperar.php',
       "/clientes" => '/clientes/ver_clientes.php',
       "/clientes/registrar" => '/clientes/registrar_clientes.php',
-      "/citas/modificar" => '/citas/modificar_cita.php',
-      
+      "/citas/modificar" => '/citas/modificar_citas.php',
+      "/cita/completar" => '/citas/completar_cita.php',
     )
 );

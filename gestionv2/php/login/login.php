@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   * ! Para sanitizar los valores y evitar inyecciones
   */
   try {
-    $datos['email'] = sanearMail($datos['email'] );
+    $datos['email'] = sanearMail($_POST['email']);
     $datos['contrasena'] = $_POST['contrasena'];
     $datos['contrasena'] = hash('sha512', $datos['contrasena']);
   } catch (Exception $e) {

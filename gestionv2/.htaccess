@@ -1,3 +1,5 @@
+ErrorDocument 404 /gestion/gestionv2/views/404.php
+
 RewriteEngine on
 
 # Block access to specific directories

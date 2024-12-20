@@ -1408,7 +1408,7 @@ video {
 }
 
 .bg-fondo {
-  background-image: url('/src/img/biologia.jpg');
+  background-image: url('../img/biologia.jpg');
 }
 
 .bg-gradient-to-r {

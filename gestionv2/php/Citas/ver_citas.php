@@ -7,10 +7,7 @@ if(!isset($_SESSION['usuario'])){
 
 use Controller\Citas;
 $citas = new Citas();
-
-if(!isset($_GET['search'])){
-  $citasList = $citas->listaTotal();
-}
+$citasList = $citas->listaTotal();
 
 
 

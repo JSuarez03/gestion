@@ -80,9 +80,10 @@ class Database {
     }
   }
   
-  public function update($table,$datos,$identidad){
-    $whereId =  array_key_first($identidad);
-    $whereValue = array_shift($identidad);
+  public function update($table,$datos){
+    $whereId =  array_key_first($datos);
+    $whereValue = array_shift($datos);
+    $keys = array_keys($datos);
     $value = array_values($datos);
     try {
       $parametros = $this->parametros($datos, ',');
@@ -90,7 +91,7 @@ class Database {
         "UPDATE $table set $parametros WHERE ". $whereId."=:".$whereValue
     );
       for($i = 0;$i < count($datos);$i++){
-          $statement->bindParam($value[$i], $value[$i]);
+          $statement->bindParam($keys[$i], $value[$i]);
       }
       $statement->bindParam($whereValue, $whereValue);
       $statement->execute();

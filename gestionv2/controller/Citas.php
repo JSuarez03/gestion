@@ -23,21 +23,30 @@ class Citas {
             return $err->getMessage();
         }
     }
+    public function modificar(array $datos) {
+      try{
+          $res = $this->conexion->update('citas', $datos);
+          return $res;
+      }
+      catch (\PDOException $err){
+          return $err->getMessage();
+      }
+    }
     
-    public function listaTotal(): array{
+    public function listaTotal(): array|\Exception{
         try{
-            $res = $this->conexion->readMany('citas');
+            $res = $this->conexion->readMany('CITAS_CLIENTES');
             return $res;
         } catch (\Exception $err) {
             return "error:" . $err->getMessage();
         }
     }
       
-    public function listaUnica(array $cliente): array{
+    public function listaUnica(string $cliente): array|\PDOException{
         try{
-            $res = $this->conexion->readOnly('citas',array('nombre'=>$cliente));
+            $res = $this->conexion->readOnly('CITAS_CLIENTES',array('id_cita'=>$cliente));
             return $res;
-        } catch (\Exception $err) {
+        } catch (\PDOException $err) {
             return "error:" . $err->getMessage();
         }
         
