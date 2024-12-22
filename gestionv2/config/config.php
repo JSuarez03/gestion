@@ -9,5 +9,5 @@
   define('PATH',"/gestion/gestionv2/");
   define('URL', $url);
   define('CompleteURL', "/gestion/gestionv2".$url);
-
+  define('CompletePath', $urlPath);
   

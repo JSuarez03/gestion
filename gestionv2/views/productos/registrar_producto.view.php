@@ -33,7 +33,7 @@
         <div class="flex flex-col gap-6">
           <div class="card">
             <div class="p-6">
-              <form class="grid lg:grid-cols-3 gap-6">
+              <form method="POST" action="<?php echo CompleteURL?>" class="grid lg:grid-cols-3 gap-6">
                 <div>
                   <label for="input-nombre" class="text-gray-800 text-sm font-medium inline-block mb-2">Nombre del Producto:</label>
                   <input type="text" id="input-nombre" class="form-input" name="nombre">
@@ -58,9 +58,9 @@
                   <label for="example-select" class="text-gray-800 text-sm font-medium inline-block mb-2">Categoria</label>
                   <select class="form-select" id="example-select" name="categoria">
                     <option>Elige una Categoria</option>
-                    <option>Categoria 1</option>
-                    <option>Categoria 2</option>
-                    <option>Categoria 3</option>
+                    <?php foreach($categorias as $categoria): ?>
+                    <option value="<?php echo $categoria['id_categoria']; ?>"><?php echo $categoria['nombre_categoria']; ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
 
