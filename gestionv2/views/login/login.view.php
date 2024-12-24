@@ -10,7 +10,11 @@
 </head>
 
 <body class=" font-poppins">
-
+  <?php if(!empty($error)):?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $error?>
+    </div>
+  <?php endif?>
   <main class=" bg-fondo">
 
     <div class="h-screen w-screen flex justify-center items-center">

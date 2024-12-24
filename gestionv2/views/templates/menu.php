@@ -213,8 +213,5 @@
             </li>
         </ul>
 
-        <div class="my-10 mx-5">    
-                <div class="inline-flex items-center h-20 px-3 text-xl font-semibold text-sky-500 bg-sky-500/25 rounded">Usuario: <?php echo $_SESSION['usuario']?></div>
-        </div>
     </div>
 </nav>
