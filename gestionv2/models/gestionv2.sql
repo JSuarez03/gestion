@@ -1,107 +1,83 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2024 a las 21:59:25
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+CREATE DATABASE IF NOT EXISTS Gestionv2 CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+USE Gestionv2;
+
+CREATE TABLE IF NOT EXISTS categorias (
+    id_categoria INT NOT NULL AUTO_INCREMENT,
+    nombre_categoria VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id_categoria)
+);
+
+CREATE TABLE IF NOT EXISTS clientes (
+    cedula INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    direccion VARCHAR(255),
+    telefono VARCHAR(15),
+    PRIMARY KEY (cedula)
+);
+CREATE TABLE IF NOT EXISTS citas (
+    id_cita INT NOT NULL AUTO_INCREMENT,
+    cedula_cliente INT NOT NULL,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    servicio VARCHAR(100) NOT NULL,
+    estado ENUM('confirmado','confirmada','pendiente','cancelada') NOT NULL,
+    PRIMARY KEY (id_cita),
+    FOREIGN KEY (cedula_cliente) REFERENCES clientes(cedula)
+);
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE VIEW citas_clientes AS
+SELECT cl.nombre,
+    cl.apellido,
+    c.id_cita,
+    c.cedula_cliente,
+    c.fecha,
+    c.hora,
+    c.servicio,
+    c.estado
+FROM citas c
+JOIN clientes cl ON cl.cedula = c.cedula_cliente;
 
---
--- Base de datos: `gestionv2`
---
+CREATE TABLE IF NOT EXISTS facturas (
+    id_factura INT NOT NULL AUTO_INCREMENT,
+    id_cliente INT NOT NULL,
+    fecha_emision DATE NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY (id_factura),
+    FOREIGN KEY (id_cliente) REFERENCES clientes(cedula)
+);
 
--- --------------------------------------------------------
+CREATE TABLE IF NOT EXISTS productos (
+    id_producto INT NOT NULL AUTO_INCREMENT,
+    nombre_producto VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    id_categoria INT NOT NULL,
+    PRIMARY KEY (id_producto),
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+);
 
---
--- Estructura de tabla para la tabla `citas`
---
+CREATE TABLE IF NOT EXISTS usuarios (
+    id_usuario INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    contrasena VARCHAR(255) NOT NULL,
+    apellido VARCHAR(50),
+    PRIMARY KEY (id_usuario)
+);
+CREATE TABLE IF NOT EXISTS detalle_factura (
+    id_detalle INT NOT NULL AUTO_INCREMENT,
+    id_factura INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(10,2) GENERATED ALWAYS AS (cantidad * precio_unitario) STORED,
+    PRIMARY KEY (id_detalle),
+    FOREIGN KEY (id_factura) REFERENCES facturas(id_factura),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
 
-CREATE TABLE `citas` (
-  `id_citas` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `apellido` varchar(50) NOT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  `numero` varchar(13) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  `razon` enum('Dificultad Visual','Cambio de Cristal','Reembolso') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `citas`
---
-
-INSERT INTO `citas` (`id_citas`, `nombre`, `apellido`, `direccion`, `numero`, `fecha`, `hora`, `razon`) VALUES
-(1, 'Jesus', 'Aguirre', 'creolanbdia', '123123423', '2024-12-11', '00:00:00', NULL),
-(2, 'Jesus', 'Aguirre', 'qeqeqe', '123123', '2024-12-11', '17:42:03', 'Dificultad Visual');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id_usuarios` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `apellido` varchar(50) NOT NULL,
-  `correo` varchar(255) NOT NULL,
-  `contrasena` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuarios`, `nombre`, `apellido`, `correo`, `contrasena`) VALUES
-(2, 'Jesus', 'Suarez', 'correo@correo.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2'),
-(3, 'fsdf', 'sfefe', 'gd@uin.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2'),
-(4, 'fosjief', 'efsf', 'iof@fcse.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `citas`
---
-ALTER TABLE `citas`
-  ADD PRIMARY KEY (`id_citas`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuarios`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `citas`
---
-ALTER TABLE `citas`
-  MODIFY `id_citas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
