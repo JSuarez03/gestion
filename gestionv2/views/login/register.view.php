@@ -26,23 +26,23 @@
                         </h1>
                         <form action="<?php echo $_SERVER['REQUEST_URI']?>" method="POST">
                         <div class="mb-4">
-                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Nombre" name="nombre">
+                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Nombre" name="nombre" required>
                         </div>
 
                         <div class="mb-4">
-                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Apellido" name="apellido">
+                            <input id="LoggingEmailAddress" class="form-input" type="text" placeholder="Ingresa tu Apellido" name="apellido" required>
                         </div>
 
                         <div class="mb-4">
-                            <input id="LoggingEmailAddress" class="form-input" type="email" placeholder="Ingresa tu Correo" name="email">
+                            <input id="LoggingEmailAddress" class="form-input" type="email" placeholder="Ingresa tu Correo" name="email" required>
                         </div>
 
                         <div class="mb-4">
-                            <input id="loggingPassword" class="form-input" type="password" placeholder="Ingresa tu Contrasena" name="contrasena">
+                            <input id="loggingPassword" class="form-input" type="password" placeholder="Ingresa tu Contrasena" name="contrasena" required>
                         </div>
 
                         <div class="mb-4">
-                            <input id="loggingPassword" class="form-input" type="password" placeholder="Repite tu Contrasena" name="contrasena2">
+                            <input id="loggingPassword" class="form-input" type="password" placeholder="Repite tu Contrasena" name="contrasena2" required>
                         </div>
 
 
