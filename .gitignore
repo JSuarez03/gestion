@@ -1,9 +1,9 @@
 /nbproject/*
 /views/pruebas.php
-/gestionv2/package-lock.json
-/gestionv2/node_modules/
-/gestionv2/views2/
+package-lock.json
+node_modules/
+views2/
 GUÍA DEL PROGRAMA Y PUNTOS RESALTANTES.docx
-/gestionv2/src/assets/
+src/assets/
 /vendor/
 composer.json
