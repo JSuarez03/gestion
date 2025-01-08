@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Controller\Database;
+use Exception;
 
 /**
  * Descripcion:
@@ -33,10 +34,10 @@ class Citas
     public function listaTotal(): array|\Exception
     {
         try {
-            $res = $this->conexion->readMany('CITAS_CLIENTES');
+            $res = $this->conexion->readOnlyAll('CITAS_CLIENTES',$datos = ['status'=>0]);
             return $res;
         } catch (\Exception $err) {
-            return "error:" . $err->getMessage();
+            return $err->getMessage();
         }
     }
 
@@ -62,6 +63,14 @@ class Citas
     {
         try {
             $res = $this->conexion->insert('history', $cliente);
+            return $res;
+        } catch (\Exception $err) {
+            return $err;
+        }
+    }
+    public function eliminarCita($datos): array|\Throwable{
+        try {
+            $res = $this->conexion->update('citas', $datos);
             return $res;
         } catch (\Exception $err) {
             return $err;

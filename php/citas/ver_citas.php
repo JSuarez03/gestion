@@ -7,7 +7,12 @@ if(!isset($_SESSION['usuario'])){
 
 use Controller\Citas;
 $citas = new Citas();
-$citasList = $citas->listaTotal();
+try{
+  $citasList = $citas->listaTotal();
+}catch (\Exception $err) {
+    echo "error:" . $err->getMessage();
+    die();
+}
 
 
 

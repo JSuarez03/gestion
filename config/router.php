@@ -20,5 +20,6 @@ $routes = array(
       "/clientes/registrar" => '/clientes/registrar_clientes.php',
       "/citas/modificar" => '/citas/modificar_citas.php',
       "/cita/completar" => '/citas/completar_cita.php',
+      "/cita/eliminar" => '/citas/eliminar_cita.php',
     )
 );

@@ -61,6 +61,23 @@ class Database {
       throw new \Exception($th->getMessage());
     }
   }
+
+  public function readOnlyAll($table,$datos): array|false{
+    $keys = array_keys($datos);
+    $value = array_values($datos);
+    $compare = $this->parametros($datos, "AND");
+    try {
+      $statement = $this->Dbpdo->prepare("Select * from $table where $compare");
+      for($i = 0;$i < count($datos);$i++){
+          $statement->bindParam($keys[$i], $value[$i]);
+      }
+      $statement->execute();
+      $res = $statement->fetchAll();
+      return $res;
+    } catch (\PDOException $th) {
+      throw new \Exception($th->getMessage());
+    }
+  }
   
   public function insert($table,$datos){
     $keys = array_keys($datos);

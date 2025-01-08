@@ -69,7 +69,7 @@
                         </td>
                         <td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
                           <button type="submit" name="id_cita" value="<?php echo $value["id_cita"] ?>" class="me-0.5"> <i class="mgc_edit_line text-lg"></i> </button>
-                          <button type="submit" formaction="<?php echo PATH ?>citas/eliminar" value="28723454" class="ms-0.5"> <i class="mgc_delete_line text-xl"></i> </button>
+                          <button type="submit" name="id_cita" formaction="<?php echo PATH ?>cita/eliminar" value="<?php echo $value["id_cita"] ?>" class="ms-0.5"> <i class="mgc_delete_line text-xl"></i> </button>
                         </td>
                       </tr>
                     </form>

@@ -27,18 +27,27 @@ CREATE TABLE IF NOT EXISTS citas (
     FOREIGN KEY (cedula_cliente) REFERENCES clientes(cedula)
 );
 
+alter table citas
+	add column status int default 0
+    
+alter table citas
+	add constraint ch_status_citas check(citas.status = 0 or citas.status = 1)
 
-CREATE VIEW citas_clientes AS
-SELECT cl.nombre,
+
+create view citas_clientes as
+	SELECT cl.nombre,
     cl.apellido,
     c.id_cita,
     c.cedula_cliente,
     c.fecha,
     c.hora,
+	c.status,
     c.servicio,
     c.estado
-FROM citas c
-JOIN clientes cl ON cl.cedula = c.cedula_cliente;
+FROM citas as c
+    JOIN clientes as cl ON cl.cedula = c.cedula_cliente
+
+
 
 CREATE TABLE IF NOT EXISTS facturas (
     id_factura INT NOT NULL AUTO_INCREMENT,
