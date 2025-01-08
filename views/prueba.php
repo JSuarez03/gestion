@@ -24,12 +24,12 @@
             const put = document.getElementById('put');
             const dele = document.getElementById('delete');
             put.addEventListener('click',async ()=>{
-                let hola = await fetch('/gestion/gestionv2/prueba',{
+                let hola = await fetch('/gestion/prueba',{
                     method:"PUT"
                 })
                 hola = await hola.json()
                 console.log(hola)
-                window.location.href = '/gestion/gestionv2/prueba'
+                window.location.href = '/gestion/prueba'
             });
             dele.addEventListener('click',()=>{
                 fetch('/prueba',{

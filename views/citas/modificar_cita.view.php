@@ -30,7 +30,7 @@
         <div class="flex flex-col gap-6">
           <div class="card">
             <div class="p-6">
-              <form method="POST" action="/gestion/cita/completar" class="grid lg:grid-cols-3 gap-6">
+              <form method="POST" action="<?php echo PATH."cita/completar"?>" class="grid lg:grid-cols-3 gap-6">
                 <div>
                   <label for="example-select" class="text-gray-800 text-sm font-medium inline-block mb-2">Cliente</label>
                   <input class="form-input" id="example-select" name="id_cita" value="<?php echo $cita["nombre"] . " " . $cita['apellido']; ?>" disabled required>

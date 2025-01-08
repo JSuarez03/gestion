@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['usuario'])) {
-  header('Location: /gestion/gestionv2/home');
+  header('Location: '.PATH.'home');
 }
 
 require_once 'php/evaluar.php';

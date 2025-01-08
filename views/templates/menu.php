@@ -21,7 +21,7 @@
             <li class="menu-title">Menu</li>
 
             <li class="menu-item ">
-                <a href="/gestion/gestionv2/home" class="menu-link">
+                <a href="<?php echo PATH.'home'?>" class="menu-link">
                     <span class="menu-icon text-white"><i class="mgc_home_3_line"></i></span>
                     <span class="menu-text text-white">Dashboard</span>
                 </a>

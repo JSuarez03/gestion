@@ -1,4 +1,4 @@
-ErrorDocument 404 /gestion/gestionv2/views/404.php
+ErrorDocument 404 /gestion/views/404.php
 
 RewriteEngine on
 
