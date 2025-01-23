@@ -2,8 +2,8 @@
 
 session_start();
 if(!isset($_SESSION['usuario'])){
-  header('Location: '.PATH.'login');
-  die();
+    header('Location: /gestion/gestionv2/login');
+    die();
 }
 
 require_once 'php/evaluar.php';
@@ -11,44 +11,33 @@ require_once 'php/evaluar.php';
 use Controller\Cliente;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-  /**
-  * ! Para sanitizar los valores y evitar inyecciones
-  */
-  $error = '';
-  try {
-    $datos['nombre'] = sanear($_POST['nombre']);
-    $datos['cedula'] = sanear($_POST['cedula']);
-    $datos['apellido'] = sanear($_POST['apellido']);
-    $datos['telefono'] = sanear($_POST['telefono']);
-    $datos['direccion'] = sanear($_POST['direccion']);
-  } catch (Exception $e) {
-    $e = $e->getMessage();
-    $error .= "<script>Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: '$e',
-        });
-        </script>";
-  }
+    $error = '';
 
-  if($error === ''){
-    try{
-      $conexion = new Cliente;
-      $resultado = $conexion->agregar($datos);
-      unset($conexion);unset($datos);
-      header("Location:".PATH."clientes/registrar");
-    }catch(\PDOException $e){
-      $error .= "<script>Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Error al registrar el cliente',
-          });
-          </script>";
+    // Verificar si todos los campos están llenos
+    if(empty($_POST['nombre']) || empty($_POST['cedula']) || empty($_POST['apellido']) || empty($_POST['telefono']) || empty($_POST['direccion'])){
+        $error = 'Por favor rellene todos los campos';
+    } else {
+        try {
+            $datos['nombre'] = sanear($_POST['nombre']);
+            $datos['cedula'] = sanear($_POST['cedula']);
+            $datos['apellido'] = sanear($_POST['apellido']);
+            $datos['telefono'] = sanear($_POST['telefono']);
+            $datos['direccion'] = sanear($_POST['direccion']);
+        } catch (Exception $e) {
+            $error = $e->getMessage();
+        }
     }
-  }
+
+    if($error === ''){
+        try{
+            $conexion = new Cliente;
+            $resultado = $conexion->agregar($datos);
+            unset($conexion);unset($datos);
+            $success = true;
+        }catch(\PDOException $e){
+            $error = 'Error al registrar el cliente';
+        }
+    }
 }
-
-
-
 
 require_once './views/clientes/registrar_clientes.view.php';
