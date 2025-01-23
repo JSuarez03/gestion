@@ -2,50 +2,39 @@
 session_start();
 
 if (isset($_SESSION['usuario'])) {
-  header('Location: '.PATH.'home');
+    header('Location: /gestion/gestionv2/home');
+    exit;
 }
 
 require_once 'php/evaluar.php';
-
 use Controller\Usuario;
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  try {
-    /**
-     * ! SE recibe y sanean las variables
-     */
+    try {
+        $email = sanearMail($_POST['email']);
+        $contrasena = $_POST['contrasena'];
 
-    $datos['email'] = sanearMail($_POST['email']);
-    $datos['contrasena'] = $_POST['contrasena'];
+        if (empty($email) || empty($contrasena)) {
+            throw new Exception('Todos los campos son obligatorios');
+        }
 
-    /**
-     * ! Usamos el metodo login de la clase Usuario para verificar si el usuario existe, 
-     * ! y si la contraseña es correcta
-     */
+        $conexion = new Usuario();
+        $statement = $conexion->login(['email' => $email, 'contrasena' => $contrasena]);
 
-    $conexion = new Usuario();
-    $statement = $conexion->login($datos);
-
-    /**
-     * ! Si el usuario existe y la contraseña es correcta se inicia la sesion y se redirige al home
-     * * de lo contrario se muestra un mensaje de error
-     */
-    if ($statement !== false) {
-      $_SESSION['email'] = $statement["email"];
-      $_SESSION['usuario'] = $statement["nombre"];
-      header('Location: home');
+        if ($statement !== false) {
+            $_SESSION['email'] = $statement["email"];
+            $_SESSION['usuario'] = $statement["nombre"];
+            header('Location: home');
+            exit;
+        } else {
+            throw new Exception('Clave o Correo Invalido');
+        }
+    } catch (\Exception $e) {
+        $error = $e->getMessage();
     }
-  } catch (\Exception $e) {
-    $error = $e->getMessage();
-    $error = "<script>Swal.fire({
-                  icon: 'error',
-                  title: 'Error',
-                  text: $error ,
-                });
-              </script>";
-  }
 }
 
 require 'views/login/login.view.php';
+?>
