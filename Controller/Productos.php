@@ -57,4 +57,12 @@ class Productos{
             return "error:" . $err->getMessage();
         }
     }
+    public function bajoStock(): array|\PDOException{
+        try{
+            $res = $this->conexion->readMany('low_stock');
+            return $res;
+        } catch (\PDOException $err) {
+            return "error:" . $err->getMessage();
+        }
+    }
 }

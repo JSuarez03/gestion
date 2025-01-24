@@ -15,11 +15,15 @@ $routes = array(
       "/index" => '/index.php',
       "/productos" => '/productos/ver_productos.php',
       "/productos/register" => '/productos/registrar_productos.php',
+      "/productos/stock" => '/productos/low_productos.php',
+      '/productos/actualizar' => '/productos/actualizar_productos.php',
+      '/productos/completar' => '/productos/completar_actualizacion.php',
       "/recuperar" => '/login/recuperar.php',
       "/clientes" => '/clientes/ver_clientes.php',
       "/clientes/registrar" => '/clientes/registrar_clientes.php',
       "/citas/modificar" => '/citas/modificar_citas.php',
-      "/cita/completar" => '/citas/completar_cita.php',
-      "/cita/eliminar" => '/citas/eliminar_cita.php',
+      "/citas/completar" => '/citas/completar_cita.php',
+      "/citas/eliminar" => '/citas/eliminar_cita.php',
+      "/citas/history" => '/citas/historia_cita.php',
     )
 );

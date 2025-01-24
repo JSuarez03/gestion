@@ -6,9 +6,9 @@ if(!isset($_SESSION['usuario'])){
 }
 
 use Controller\Citas;
-$citas = new Citas();
+
 try{
-  $citasList = $citas->listaTotal();
+  $citasList = (new Citas)->listaTotal();
 }catch (\Exception $err) {
     echo "error:" . $err->getMessage();
     die();

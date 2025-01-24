@@ -1,7 +1,7 @@
 <nav class="app-menu">
     <a href="<?php echo PATH.'home'?>" class="logo-box">
                 <div class="logo-light">
-                    <img src="<?php echo PATH?>src/assets/images/opty.png" class="logo-lg h-6" alt="Light logo">
+                    <img src="<?php echo PATH?>src/assets/images/name.png" class="logo-lg h-6" alt="Light logo">
                     <img src="<?php echo PATH?>src/assets/images/opty.png" class="logo-sm" alt="Small logo">
                 </div>
 
@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo PATH.'citas'?>" class="menu-link">
+                        <a href="<?php echo PATH.'citas/history'?>" class="menu-link">
                             <span class="menu-text">Historial de Citas</span>
                         </a>
                     </li>
@@ -95,18 +95,13 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">Actualizar Stock</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
                         <a href="<?php echo PATH?>productos" class="menu-link">
                             <span class="menu-text">Consular Inventario</span>
                         </a>
                     </li>
 
                     <li class="menu-item">
-                        <a href="#" class="menu-link">
+                        <a href="<?php echo PATH?>productos/stock" class="menu-link">
                             <span class="menu-text">Alertas de Stock Bajo</span>
                         </a>
                     </li>
@@ -142,63 +137,6 @@
                     <li class="menu-item">
                         <a href="#" class="menu-link">
                             <span class="menu-text">Lightbox</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
-                    <span class="menu-icon"><i class="mgc_file_check_line"></i></span>
-                    <span class="menu-text"> Seccion Extra 2 </span>
-                    <span class="menu-arrow"></span>
-                </a>
-
-                <ul class="sub-menu hidden">
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">01</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">02</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">03</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">04</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
-                    <span class="menu-icon"><i class="mgc_layout_grid_line"></i></span>
-                    <span class="menu-text"> Seccion 03 </span>
-                    <span class="menu-arrow"></span>
-                </a>
-
-                <ul class="sub-menu hidden">
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">01</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">02</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">02</span>
                         </a>
                     </li>
                 </ul>

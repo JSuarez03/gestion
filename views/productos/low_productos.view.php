@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Modificar Cita</title>
+  <title>Bajo stock</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
   <meta content="coderthemes" name="author">
@@ -24,58 +24,54 @@
       <main class="flex-grow p-6">
         <div class="flex justify-between items-center mb-6">
           <p class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
-            Ver Cita
+          Pocos Productos
           </p>
         </div>
         <div class="mt-6">
           <div class="card">
 
             <div class="relative overflow-x-auto">
+            <?php if(empty($producto)):?>
+              <div class="flex items-center justify-center h-96">
+                <p class="text-xl font-bold text-gray-500">No hay productos con stock bajo</p>
+              </div>
+            <?php else:?>
               <table class="w-full divide-y divide-gray-300 dark:divide-gray-700">
                 <thead class="bg-slate-300 bg-opacity-20 border-t dark:bg-slate-800 divide-gray-300 dark:border-gray-700">
                   <tr>
                     <th scope="col" class="py-3.5 ps-4 pe-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">ID</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Cliente</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Fecha</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Hora</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Servicio</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Estado</th>
-                    <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Acciones</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Nombre</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Precio</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Stock</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Actualizar</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700 ">
-                  <?php foreach ($citasList as $key => $value): ?>
-                    <form method="POST" action="<?php echo PATH ?>citas/modificar">
+                    
+                  <?php foreach ($producto as $key => $value): ?>
+                    <form method="POST" action="<?php echo PATH ?>productos/actualizar">
                       <tr>
                         <td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200"><b>#<?php echo $key + 1 ?></b></td>
                         <td class="whitespace-nowrap py-4 pe-3 text-sm">
                           <div class="flex items-center">
-                            <div class="font-medium text-gray-900 dark:text-gray-200 ms-4"><?php echo $value["nombre"] . " " . $value["apellido"] ?></div>
+                            <div class="font-medium text-gray-900 dark:text-gray-200 ms-4"><?php echo $value["nombre_producto"]?></div>
                           </div>
                         </td>
-                        <td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200"><?php echo $value["fecha"] ?></td>
+                        <td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200"><?php echo $value["precio_unitario"] ?></td>
                         <td class="whitespace-nowrap py-4 pe-3 text-sm">
                           <div class="flex items-center">
-                            <div class="font-medium text-gray-900 dark:text-gray-200 ms-4"><?php echo $value["hora"] ?></div>
+                            <div class="font-medium text-gray-900 dark:text-gray-200 ms-4"><?php echo $value["cantidad"] ?></div>
                           </div>
-                        </td>
-                        <td class="whitespace-nowrap py-4 pe-3 text-sm">
-                          <div class="flex items-center">
-                            <div class="font-medium text-gray-900 dark:text-gray-200 ms-4"><?php echo $value["servicio"] ?></div>
-                          </div>
-                        </td>
-                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          <div class="inline-flex items-center px-3 py-1 rounded text-xs <?php if($value["estado"] == "confirmada" || $value["estado"] == 'confirmado'){echo "text-success bg-success/25";} if($value["estado"] == "pendiente"){echo "text-warning bg-warning/25";}  if($value["estado"] == "cancelada"){echo "text-danger bg-danger/25"; } ?>  font-bold"><?php echo $value["estado"] ?></div>
                         </td>
                         <td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
-                          <button type="submit" name="id_cita" value="<?php echo $value["id_cita"] ?>" class="me-0.5"> <i class="mgc_edit_line text-lg"></i> </button>
-                          <button type="submit" name="id_cita" formaction="<?php echo PATH ?>cita/eliminar" value="<?php echo $value["id_cita"] ?>" class="ms-0.5"> <i class="mgc_delete_line text-xl"></i> </button>
+                          <button type="submit" name="id_producto" value="<?php echo $value["id_producto"] ?>" class="me-0.5"> <i class="mgc_edit_line text-lg"></i> </button>
                         </td>
                       </tr>
                     </form>
                   <?php endforeach; ?>
                 </tbody>
               </table>
+            <?php endif;?>
             </div>
           </div>
         </div>

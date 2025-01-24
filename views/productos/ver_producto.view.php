@@ -30,21 +30,23 @@
                             <div class="card">
                                 <img class="w-full h-auto rounded-t-xl" src="../assets/images/small/koku.jpg" alt="Image Description">
                                 <div class="p-6">
-                                    <h3 class="text-lg font-bold text-gray-800 dark:text-black">
-                                        <?php echo $producto['nombre_producto']?>
-                                    </h3>
-                                    <p class="mt-1 text-gray-800 font-semibold">
-                                        Descripcion: <span class="font-extralight text-gray-400"><?php echo $producto['descripcion']?></span>
-                                    </p>
-                                    <p class="mt-1 text-gray-800 font-semibold">
-                                        Precio: <span class="font-extralight text-gray-400"><?php echo $producto['precio_unitario']?>$ (c/u)</span>
-                                    </p>
-                                    <p class="mt-1 text-gray-800 font-semibold">
-                                        Unidades displonible: <span class="font-extralight text-gray-400"><?php echo $producto['cantidad']?></span>
-                                    </p>
-                                    <a class="btn bg-primary text-white mt-2" href="#">
-                                        Agregar al Carrito
-                                    </a>
+                                    <form action="<?php echo PATH?>productos/actualizar" method="POST">
+                                        <h3 class="text-lg font-bold text-gray-800 dark:text-black">
+                                            <?php echo $producto['nombre_producto']?>
+                                        </h3>
+                                        <p class="mt-1 text-gray-800 font-semibold">
+                                            Descripcion: <span class="font-extralight text-gray-400"><?php echo $producto['descripcion']?></span>
+                                        </p>
+                                        <p class="mt-1 text-gray-800 font-semibold">
+                                            Precio: <span class="font-extralight text-gray-400"><?php echo $producto['precio_unitario']?>$ (c/u)</span>
+                                        </p>
+                                        <p class="mt-1 text-gray-800 font-semibold">
+                                            Unidades displonible: <span class="font-extralight text-gray-400"><?php echo $producto['cantidad']?></span>
+                                        </p>
+                                        <button class="btn bg-primary text-white mt-2" name="id_producto" value="<?php echo $producto['id_producto']?>">
+                                            Editar Producto
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -60,6 +62,7 @@
                     </a>
                     <?php endif?>
                     <?php for($i=$pagina;$i <= $numeroPaginas;$i++):?>
+                        <?php if($numeroPaginas == 1) break?>
                         <a href="<?php echo $reference."$i"?>" class="btn bg-primary text-white mt-2 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
                         <?php echo $i?>
                         </a>

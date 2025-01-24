@@ -34,7 +34,7 @@ class Citas
     public function listaTotal(): array|\Exception
     {
         try {
-            $res = $this->conexion->readOnlyAll('CITAS_CLIENTES',$datos = ['status'=>0]);
+            $res = $this->conexion->readMany('CITAS_CLIENTES');
             return $res;
         } catch (\Exception $err) {
             return $err->getMessage();
@@ -50,19 +50,10 @@ class Citas
             return "error:" . $err->getMessage();
         }
     }
-    public function historia($cliente)
+    public function historia()
     {
         try {
-            $res = $this->conexion->readOnly('history', array('correo' => $cliente));
-            return $res;
-        } catch (\Exception $err) {
-            return $err;
-        }
-    }
-    public function historiaAdd($cliente)
-    {
-        try {
-            $res = $this->conexion->insert('history', $cliente);
+            $res = $this->conexion->readMany('citas_historicas');
             return $res;
         } catch (\Exception $err) {
             return $err;

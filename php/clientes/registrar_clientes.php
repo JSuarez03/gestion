@@ -2,7 +2,7 @@
 
 session_start();
 if(!isset($_SESSION['usuario'])){
-    header('Location: /gestion/gestionv2/login');
+    header('Location: '.PATH.'login');
     die();
 }
 
