@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+  header('Location: '.PATH.'login');
+  die();
+}
 
 use Controller\Productos;
 require_once './php/evaluar.php';

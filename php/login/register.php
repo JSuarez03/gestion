@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['usuario'])) {
-    header('Location: login');
+    header('Location: ' . PATH . 'home');
     exit;
 }
 require_once 'php/evaluar.php';
@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($result) {
                 $success = true;
                 $_SESSION['registro_exitoso'] = true;
+                header('Location: ' . PATH . 'login');
             } else {
                 throw new Exception("Error en el registro. Por favor, intenta de nuevo.");
             }

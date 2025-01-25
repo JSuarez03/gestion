@@ -90,6 +90,11 @@
 
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
+                        <a href="<?php echo PATH?>productos/categorias" class="menu-link">
+                            <span class="menu-text">Categorias</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
                         <a href="<?php echo PATH?>productos/register" class="menu-link">
                             <span class="menu-text">Registrar Producto</span>
                         </a>
@@ -108,39 +113,6 @@
                 </ul>
             </li>
 
-            <li class="menu-title">Compra</li>
-
-            <li class="menu-item">
-                <a href="javascript:void(0)" data-fc-type="collapse" class="menu-link">
-                    <span class="menu-icon"><i class="mgc_box_3_line"></i></span>
-                    <span class="menu-text"> Compras </span>
-                    <span class="menu-arrow"></span>
-                </a>
-
-                <ul class="sub-menu hidden">
-                    <li class="menu-item">
-                        <a href="<?php echo PATH?>productos" class="menu-link">
-                            <span class="menu-text">Listado de Productos</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="carrito.html" class="menu-link">
-                            <span class="menu-text">Carrito de Compras</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">Ratings</span>
-                        </a>
-                    </li>
-
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <span class="menu-text">Lightbox</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
 
             <li class="menu-title">Cerrar Sesion</li>
 

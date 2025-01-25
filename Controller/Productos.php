@@ -65,4 +65,14 @@ class Productos{
             return "error:" . $err->getMessage();
         }
     }
+    public function egresar(array $datos,$cantidad){
+        try{
+            $res = $this->conexion->insert('movimientos_productos', $datos);
+            $res = $this->conexion->update('productos',$cantidad);
+            return $res;
+        }
+        catch (\PDOException $err){
+            return $err->getMessage();
+        }
+    }
 }

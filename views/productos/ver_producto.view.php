@@ -28,21 +28,24 @@
                     <?php foreach ($producto as $key => $producto): ?>
                         <div>
                             <div class="card">
-                                <img class="w-full h-auto rounded-t-xl" src="../assets/images/small/koku.jpg" alt="Image Description">
+                                <!-- <img class="w-full h-auto rounded-t-xl" src="../assets/images/small/koku.jpg" alt="Image Description"> -->
                                 <div class="p-6">
                                     <form action="<?php echo PATH?>productos/actualizar" method="POST">
-                                        <h3 class="text-lg font-bold text-gray-800 dark:text-black">
+                                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">
                                             <?php echo $producto['nombre_producto']?>
                                         </h3>
-                                        <p class="mt-1 text-gray-800 font-semibold">
-                                            Descripcion: <span class="font-extralight text-gray-400"><?php echo $producto['descripcion']?></span>
+                                        <p class="mt-1 text-gray-800 font-semibold dark:text-gray-200">
+                                            Descripcion: <span class="font-extralight text-gray-400 "><?php echo $producto['descripcion']?></span>
                                         </p>
-                                        <p class="mt-1 text-gray-800 font-semibold">
+                                        <p class="mt-1 text-gray-800 font-semibold dark:text-gray-200">
                                             Precio: <span class="font-extralight text-gray-400"><?php echo $producto['precio_unitario']?>$ (c/u)</span>
                                         </p>
-                                        <p class="mt-1 text-gray-800 font-semibold">
+                                        <p class="mt-1 text-gray-800 font-semibold dark:text-gray-200">
                                             Unidades displonible: <span class="font-extralight text-gray-400"><?php echo $producto['cantidad']?></span>
                                         </p>
+                                        <button class="btn bg-primary text-white mt-2" formaction="<?php echo PATH?>productos/egreso" name="id_producto" value="<?php echo $producto['id_producto']?>">
+                                            Egresar
+                                        </button>
                                         <button class="btn bg-primary text-white mt-2" name="id_producto" value="<?php echo $producto['id_producto']?>">
                                             Editar Producto
                                         </button>

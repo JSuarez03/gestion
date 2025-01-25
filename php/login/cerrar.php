@@ -3,7 +3,7 @@
 session_start();
 session_destroy();
 $_SESSION = array();
-header("Location: '.PATH.'login");
+header("Location: ".PATH."login");
 die();
 
 ?>

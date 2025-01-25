@@ -18,12 +18,12 @@
             </div>
         </a>
 
-        <button type="button" data-fc-type="modal" data-fc-target="topbar-search-modal" class="nav-link p-2 me-auto">
+        <span class=" me-auto">
 <!--             <span class="sr-only">Buscar</span>
             <span class="flex items-center justify-center h-6 w-6">
                 <i class="mgc_search_line text-2xl"></i>
             </span> -->
-        </button>
+        </span>
 
         <div class="relative">
 
@@ -59,7 +59,7 @@
                     <span><?php echo $_SESSION['usuario']?></span>
                 </a>
                 <hr class="my-2 -mx-2 border-gray-200 dark:border-gray-700">
-                <a href="<?php echo PATH ?>logout" class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="#">
+                <a href="<?php echo PATH?>logout" class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="#">
                     <i class="mgc_exit_line  me-2"></i> 
                     <span>Cerrar Sesion</span>
                 </a>

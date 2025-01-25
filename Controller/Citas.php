@@ -3,7 +3,6 @@
 namespace Controller;
 
 use Controller\Database;
-use Exception;
 
 /**
  * Descripcion:

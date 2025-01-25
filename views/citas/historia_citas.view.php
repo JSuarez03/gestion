@@ -64,7 +64,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                    <div class="inline-flex items-center px-3 py-1 rounded text-xs <?php if($value["estado"] == "confirmada"){echo "text-success bg-success/25";} if($value["estado"] == "pendiente"){echo "text-warning bg-warning/25";}  if($value["estado"] == "cancelada"){echo "text-danger bg-danger/25"; } ?> font-bold"><?php echo $value["estado"] ?></div>
+                                                    <div class="inline-flex items-center px-3 py-1 rounded text-xs <?php if($value["estado"] == "confirmada" || $value["estado"] == "confirmado"){echo "text-success bg-success/25";} if($value["estado"] == "pendiente"){echo "text-warning bg-warning/25";}  if($value["estado"] == "cancelada"){echo "text-danger bg-danger/25"; } ?> font-bold"><?php echo $value["estado"] ?></div>
                                                 </td>
                                             </tr>
                                         </form>

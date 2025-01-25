@@ -30,7 +30,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="flex justify-between items-center">
-                                <h4 class="card-title">Historial de Clientes</h4>
+                                <h4 class="card-title">Lista de Clientes</h4>
                             </div>
                         </div>
                         <div class="p-6">
@@ -40,7 +40,7 @@
                 </div>
                 <br>
 
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-header">
                         <div class="flex justify-between items-center">
                             <h4 class="card-title">Historial de Compras de Clientes</h4>
@@ -49,7 +49,7 @@
                     <div class="p-6">
                         <div id="table-pagination"></div>
                     </div>
-                </div>
+                </div> -->
             </main>
 
         </div>
