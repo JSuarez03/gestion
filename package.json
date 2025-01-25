@@ -33,6 +33,7 @@
     "function-bind": "^1.1.2",
     "glob": "^10.4.5",
     "glob-parent": "^6.0.2",
+    "gridjs": "^6.2.0",
     "hasown": "^2.0.2",
     "is-binary-path": "^2.1.0",
     "is-core-module": "^2.16.0",
@@ -105,5 +106,3 @@
   "license": "ISC",
   "description": ""
 }
-
-

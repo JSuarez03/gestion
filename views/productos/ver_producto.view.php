@@ -56,7 +56,8 @@
                     <?php endforeach ?>
                 </div>
                 <div>
-                    <?php if($pagina > 1):?>
+                    <?php if($numeroPaginas > 1):?>
+                        <?php if($pagina > 1):?>
                     <a href="<?php echo $reference."1"?>" class="btn bg-primary text-white mt-2 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
                         inicio
                     </a>
@@ -64,13 +65,11 @@
                         anterior
                     </a>
                     <?php endif?>
-                    <?php for($i=$pagina;$i <= $numeroPaginas;$i++):?>
-                        <?php if($numeroPaginas == 1) break?>
-                        <a href="<?php echo $reference."$i"?>" class="btn bg-primary text-white mt-2 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
-                        <?php echo $i?>
+                    <?php foreach($nums as $num):?>
+                        <a href="<?php echo $reference.$num?>" class="btn bg-primary text-white mt-2 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
+                        <?php echo $num?>
                         </a>
-                        <?php if($i == ($pagina+5)) break?>
-                    <?php endfor?>
+                    <?php endforeach?>
                     <?php if($pagina < $numeroPaginas):?>
                     <a href="<?php echo  $reference.$siguiente?>" class="btn bg-primary text-white mt-2 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-">
                         siguiente
@@ -78,6 +77,7 @@
                     <a href="<?php echo  $reference.$numeroPaginas?>" class="btn bg-primary text-white mt-2 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-" style='  '>
                         fin
                     </a>
+                    <?php endif?>
                     <?php endif?>
                 </div>
             </main>

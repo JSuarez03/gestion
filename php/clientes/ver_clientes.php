@@ -9,14 +9,22 @@ if (!isset($_SESSION['usuario'])) {
 
 use Controller\Cliente;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $conexion = new Cliente;
-  $clientes = $conexion->lista();
-  $datos = array(['Nombre', 'Apellido', 'Telefono', 'Direccion']);
-  foreach ($clientes as $cliente) {
-    array_push($datos, [$cliente['nombre'], $cliente['apellido'], $cliente['telefono'], $cliente['direccion']]);
-  };
-  return $datos;
+
+$conexion = new Cliente;
+$clientes = $conexion->lista();
+$numClientes = sizeof($clientes);
+
+$pagina = $_GET['page'] ?? 1;
+$ClientesPorPagina  = 2;
+$inicio =($pagina > 1) ? ($pagina - 1) * $ClientesPorPagina : 0;
+$numeroPaginas = ceil($numClientes / $ClientesPorPagina);
+$anterior = $pagina - 1;
+$siguiente = $pagina + 1;
+$reference = CompleteURL;
+$clientes = array_slice($clientes, $inicio, $ClientesPorPagina);
+$nums = [];
+for($i=$pagina;$i <= $numeroPaginas;$i++){
+    $nums[$i] = $i;
 }
 
 

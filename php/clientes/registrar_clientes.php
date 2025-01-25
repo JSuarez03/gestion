@@ -34,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultado = $conexion->agregar($datos);
             unset($conexion);unset($datos);
             $success = true;
+            header('Location: '.PATH.'clientes');
         }catch(\PDOException $e){
             $error = 'Error al registrar el cliente';
         }

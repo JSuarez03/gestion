@@ -27,6 +27,10 @@ if($busqueda != ''){
 
 $producto = array_slice($producto, $inicio, $productosPorPagina);
 
+$nums = [];
+for($i=$pagina;$i <= $numeroPaginas;$i++){
+    $nums[$i] = $i;
+}
 
 require_once 'views/productos/ver_producto.view.php';
 ?>
