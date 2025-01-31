@@ -7,6 +7,7 @@ if(!isset($_SESSION['usuario'])){
 require_once('./php/evaluar.php');
 use Controller\Citas;
 use Controller\Cliente;
+use Controller\Usuario;
 $listaClientes = (new Cliente)->lista();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -41,6 +42,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($date->format('Y-m-d H:i') < $current_date->format('Y-m-d H:i')){
             throw new Exception("la fecha de la cita no puede ser colocara en una fecha anterior");
         }
+
+        $usuarioId = (new Usuario)->getId($_SESSION['usuario']);
+        $datos['id_usuario'] = $usuarioId;
     } catch (Exception $th){
         $error = $th->getMessage();
     }

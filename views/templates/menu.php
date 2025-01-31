@@ -1,13 +1,13 @@
 <nav class="app-menu">
     <a href="<?php echo PATH.'home'?>" class="logo-box">
                 <div class="logo-light">
-                    <img src="<?php echo PATH?>src/assets/images/name.png" class="logo-lg h-6" alt="Light logo">
-                    <img src="<?php echo PATH?>src/assets/images/opty.png" class="logo-sm" alt="Small logo">
+                    <img src="<?php echo PATH?>src/images/name.png" class="logo-lg h-6" alt="Light logo">
+                    <img src="<?php echo PATH?>src/images/optisys.png" class="logo-sm" alt="Small logo">
                 </div>
 
                 <div class="logo-dark">
-                    <img src="<?php echo PATH?>src/assets/images/name.png" class="logo-lg h-6" alt="Dark logo">
-                    <img src="<?php echo PATH?>src/assets/images/opty.png" class="logo-sm" alt="Small logo">
+                    <img src="<?php echo PATH?>src/images/name.png" class="logo-lg h-6" alt="Dark logo">
+                    <img src="<?php echo PATH?>src/images/optisys.png" class="logo-sm" alt="Small logo">
                 </div>
             </a>
 

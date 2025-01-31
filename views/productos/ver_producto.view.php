@@ -28,7 +28,7 @@
                     <?php foreach ($producto as $key => $producto): ?>
                         <div>
                             <div class="card">
-                                <!-- <img class="w-full h-auto rounded-t-xl" src="../assets/images/small/koku.jpg" alt="Image Description"> -->
+                                
                                 <div class="p-6">
                                     <form action="<?php echo PATH?>productos/actualizar" method="POST">
                                         <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">

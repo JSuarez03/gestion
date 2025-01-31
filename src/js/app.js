@@ -369,7 +369,7 @@ class ThemeCustomizer {
     setSwitchFromConfig() {
 
         sessionStorage.setItem('__CONFIG__', JSON.stringify(this.config));
-        // localStorage.setItem('__CONFIG__', JSON.stringify(this.config));
+        //localStorage.setItem('__CONFIG__', JSON.stringify(this.config));
 
         document.querySelectorAll('#theme-customization input[type=radio]').forEach(function (radio) {
             radio.checked = false;

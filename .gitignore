@@ -4,6 +4,6 @@ package-lock.json
 node_modules/
 views2/
 GUÍA DEL PROGRAMA Y PUNTOS RESALTANTES.docx
-src/assets/
+src/libs/
 /vendor/
 composer.json

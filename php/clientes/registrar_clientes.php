@@ -9,6 +9,7 @@ if(!isset($_SESSION['usuario'])){
 require_once 'php/evaluar.php';
 
 use Controller\Cliente;
+use Controller\Usuario;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $error = '';
@@ -23,6 +24,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $datos['apellido'] = sanear($_POST['apellido']);
             $datos['telefono'] = sanear($_POST['telefono']);
             $datos['direccion'] = sanear($_POST['direccion']);
+            
+            $usuarioId = (new Usuario)->getId($_SESSION['usuario']);
+            $datos['id_usuario'] = $usuarioId;
         } catch (Exception $e) {
             $error = $e->getMessage();
         }
@@ -35,8 +39,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             unset($conexion);unset($datos);
             $success = true;
             header('Location: '.PATH.'clientes');
-        }catch(\PDOException $e){
-            $error = 'Error al registrar el cliente';
+        }catch(\Exception $e){
+            $error = $e->getMessage();
         }
     }
 }

@@ -30,6 +30,20 @@
 
 
                 <!-- Page Title End -->
+                <?php if (isset($error)): ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <div class="flex items-center justify-between flex-wrap">
+                            <div class="flex items-center">
+                                <i class="icon fas fa-exclamation-circle text-2xl text-red-500"></i>
+                                <span class="px-2 font-medium text-red-600">Error:</span>
+                                <span class="text-sm text-red-700"><?php var_dump($error) ?></span>
+                            </div>
+                            <button class="text-2xl" data-dismiss="alert">
+                                <i class="icon fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                <?php endif ?>
                 <div class="flex flex-col gap-6">
                     <div class="card">
                         <div class="p-6">

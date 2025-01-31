@@ -5,11 +5,14 @@
         die();
     }
     use Controller\Categorias;
-
+    use Controller\Usuario;
+    require_once('./php/evaluar.php');
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $usuarioId = (new Usuario)->getId($_SESSION['usuario']);
         $datos = array(
-            'nombre_categoria' => $_POST['nombre']
+            'nombre_categoria' => sanear($_POST['nombre']),
+            'id_usuario' => $usuarioId
         );
         $res = (new Categorias)->agregar($datos);
         header('Location: '.PATH.'productos/categorias');

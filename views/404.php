@@ -12,7 +12,7 @@
     <div class="header">
         <h1>Error 404</h1>
     </div>
-    <img src="<?php echo PATH?>src/assets/404.png" alt="Error 404" />
+    <img src="<?php echo PATH?>src/images/404.png" alt="Error 404" />
     <div class="footer">
         <p>
             Lo sentimos, la pagina que buscas no se ha encontrado

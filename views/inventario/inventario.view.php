@@ -26,7 +26,7 @@ if(!isset($_SESSION['usuario'])){
         <nav>
             <ul>
                 <li><a href="#" class="logo">
-                        <img src="src/assets/optisys.png" alt="">
+                        <img src="src/images/optisys.png" alt="">
                         <span class="nav-item">OptiSys</span>
                     </a></li>
                 <li><a href="home.view.php">

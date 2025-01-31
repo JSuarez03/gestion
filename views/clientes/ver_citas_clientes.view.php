@@ -91,17 +91,6 @@
                     </div>
                 </div>
                 <br>
-
-                <!-- <div class="card">
-                    <div class="card-header">
-                        <div class="flex justify-between items-center">
-                            <h4 class="card-title">Historial de Compras de Clientes</h4>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div id="table-pagination"></div>
-                    </div>
-                </div> -->
             </main>
 
         </div>
@@ -116,7 +105,6 @@
     <button data-toggle="back-to-top" class="fixed hidden h-10 w-10 items-center justify-center rounded-full z-10 bottom-20 end-14 p-2.5 bg-primary cursor-pointer shadow-lg text-white">
         <i class="mgc_arrow_up_line text-lg"></i>
     </button>
-    <script src="src\assets\js\pages\table-gridjs.js"></script>
     <!-- Theme Settings -->
     <?php require_once './views/templates/themeSettings.php'; ?>
 </body>

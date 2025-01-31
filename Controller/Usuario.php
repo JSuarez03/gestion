@@ -45,4 +45,13 @@ class Usuario{
     }
     ;
   }
+
+  public function getId($name){
+    try {
+      $resultado = $this->conexion->readOnly('usuarios',['nombre'=>$name]);
+      return $resultado['id_usuario'];
+    } catch (\Throwable $th) {
+      throw new \Exception('Fallo: usuario no encontrado');
+    }
+  }
 }
